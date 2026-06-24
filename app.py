@@ -11,7 +11,7 @@ conn_str = "mssql+pyodbc:///?odbc_connect=DRIVER={SQL Server};SERVER=.;DATABASE=
 def carregar_dados():
     engine = create_engine(conn_str)
     # Lemos os dados como bytes para evitar que o Windows altere os acentos
-    df = pd.read_sql("SELECT * FROM View_Atendimentos_Limpos", engine)
+    df = pd.read_csv("nome_do_seu_arquivo.csv", sep=',', encoding='utf-8')
     
     # Esta função limpa o texto sem usar bibliotecas complicadas
     def limpar_caracteres(texto):
